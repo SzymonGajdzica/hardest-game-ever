@@ -33,7 +33,7 @@ public class DataController {
         return mapData;
     }
 
-    private List<Generator> getGenerators(){
+    private List<Generator> getGenerators() {
         List<Generator> generators = new LinkedList<>();
         generators.add(new NonMovableGenerator());
         generators.add(new EnemyGenerator());
@@ -41,15 +41,15 @@ public class DataController {
         return generators;
     }
 
-    private Map<Color, Set<IVector>> getColoredPoints(Color[][] colors){
+    private Map<Color, Set<IVector>> getColoredPoints(Color[][] colors) {
         Map<Color, Set<IVector>> coloredPoints = new HashMap<>();
-        for(int i = 0; i < colors.length; i++){
+        for (int i = 0; i < colors.length; i++) {
             Color[] colorArray = colors[i];
-            for(int j = 0; j < colorArray.length; j++){
+            for (int j = 0; j < colorArray.length; j++) {
                 Color color = colorArray[j];
-                if(!color.equals(Color.background)){
+                if (!color.equals(Color.background)) {
                     Set<IVector> enemyMapNodes = coloredPoints.get(color);
-                    if(enemyMapNodes == null)
+                    if (enemyMapNodes == null)
                         coloredPoints.put(color, new HashSet<>(Collections.singletonList(new IVector(i, j))));
                     else
                         enemyMapNodes.add(new IVector(i, j));
