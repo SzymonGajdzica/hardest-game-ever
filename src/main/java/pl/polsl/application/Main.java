@@ -11,8 +11,11 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        GameViewImpl.init();
+    public void start(Stage primaryStage) throws Exception {
+        if(!getParameters().getRaw().contains("run"))
+            throw new Exception("Execute file with launcher or launcher_debug file");
+        else
+            GameViewImpl.init();
     }
 
 }
